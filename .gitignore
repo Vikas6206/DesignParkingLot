@@ -26,3 +26,7 @@ hs_err_pid*
 *.gradle/
 *.idea/
 *gradle/
+
+#ignore buil and out directory
+build/
+out/

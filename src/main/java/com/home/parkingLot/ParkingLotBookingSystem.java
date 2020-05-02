@@ -32,6 +32,7 @@ public class ParkingLotBookingSystem extends ParkingLotTemplate {
                 .setVehicle(vehicle)
                 .build();
         booking.getSlotList().forEach(slot -> slot.setOccupied(Boolean.TRUE));
+        parkingLot.getBookingList().add(booking);
         return booking;
     }
 

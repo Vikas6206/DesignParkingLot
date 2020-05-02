@@ -9,18 +9,12 @@ public class Vehicle {
     private String model;
     private int slotNeeded;
 
-    public Vehicle(VehicleSize vehicleSize, int numberPlate, Color color, String model) {
-        this.vehicleSize = vehicleSize;
-        this.numberPlate = numberPlate;
-        this.color = color;
-        this.model = model;
-        if(this.vehicleSize ==VehicleSize.LARGE){
-            this.slotNeeded=4;
-        }else if(this.vehicleSize==VehicleSize.COMPACT){
-            this.slotNeeded=2;
-        }else{
-            this.slotNeeded=1;
-        }
+    public Vehicle(VehicleBuilder vehicleBuilder) {
+        this.vehicleSize = vehicleBuilder.vehicleSize;
+        this.numberPlate = vehicleBuilder.numberPlate;
+        this.color = vehicleBuilder.color;
+        this.model = vehicleBuilder.model;
+        this.slotNeeded=vehicleBuilder.slotNeeded;
     }
 
     public VehicleSize getVehicleSize() {
@@ -42,4 +36,44 @@ public class Vehicle {
     public int getSlotNeeded() {
         return slotNeeded;
     }
+
+    public static class VehicleBuilder {
+
+
+        private VehicleSize vehicleSize;
+        private int numberPlate;
+
+        private Color color;
+        private String model;
+        private int slotNeeded;
+
+        public VehicleBuilder(VehicleSize vehicleSize, int numberPlate) {
+            this.vehicleSize = vehicleSize;
+            this.numberPlate = numberPlate;
+
+            if (vehicleSize == VehicleSize.LARGE) {
+                slotNeeded = 4;
+            } else if (vehicleSize == VehicleSize.COMPACT) {
+                slotNeeded = 2;
+            } else {
+                slotNeeded = 1;
+            }
+        }
+
+        public VehicleBuilder setModel(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public VehicleBuilder setColor(Color color) {
+            this.color = color;
+            return this;
+        }
+
+        public Vehicle build() {
+            return new Vehicle(this);
+        }
+
+    }
+
 }
