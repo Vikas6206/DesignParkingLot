@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Row {
-    private int RowNo;
-    private int LevelNo;
+    private int rowNo;
+    private int levelNo;
     private List<Slot> slotList;
 
     public Row(int rowNo, int levelNo) {
         //check if levelNo is null to throw illegal argument exception
-        RowNo = rowNo;
-        LevelNo = levelNo;
+        this.rowNo = rowNo;
+        this.levelNo = levelNo;
         this.slotList=new ArrayList<>();
     }
 
     public int getRowNo() {
-        return RowNo;
+        return rowNo;
     }
 
     public int getLevelNo() {
-        return LevelNo;
+        return levelNo;
     }
 
     public List<Slot> getSlotList() {

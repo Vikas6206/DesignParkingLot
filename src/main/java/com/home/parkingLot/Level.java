@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Level {
-    private int LevelNo;
+    private int levelNo;
     private ParkingLot parkingLot;
     private List<Row> rowList;
 
@@ -13,13 +13,13 @@ public class Level {
         if(parkingLot == null){
             throw new IllegalArgumentException("Parking not is null");
         }
-        LevelNo = levelNo;
+        this.levelNo = levelNo;
         this.parkingLot = parkingLot;
         rowList=new ArrayList<>();
     }
 
     public int getLevelNo() {
-        return LevelNo;
+        return levelNo;
     }
 
     public ParkingLot getParkingLot() {
