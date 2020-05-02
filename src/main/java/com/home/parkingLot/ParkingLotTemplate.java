@@ -36,8 +36,12 @@ public abstract class ParkingLotTemplate {
     }
 
     public PaymentStatus exit(Vehicle vehicle) {
-        Booking booking = searchBooking(vehicle);
-        Payment payment = pay(booking);
+        IBooking booking = searchBooking(vehicle);
+        if(booking instanceof EmptyBooking){
+            System.out.println("Rogue vehicle found ...");
+            return PaymentStatus.FAIL;
+        }
+        Payment payment = pay((Booking) booking);
         Booking book = (Booking) booking;
         clearSlot(book.getSlotList());
         return payment.getPaymentStatus();
