@@ -19,7 +19,7 @@ public abstract class ParkingLotTemplate {
 
     protected abstract Payment pay(Booking booking);
 
-    protected abstract PaymentStatus clearSlot(List<Slot> slotList);
+    protected abstract void clearSlot(List<Slot> slotList);
 
     public IBooking booking(Vehicle vehicle) {
         vehicle = registerVehicle(vehicle);

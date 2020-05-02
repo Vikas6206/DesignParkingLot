@@ -22,4 +22,16 @@ public class Slot {
     public Boolean getOccupied() {
         return isOccupied;
     }
+
+    public void setRowNo(int rowNo) {
+        this.rowNo = rowNo;
+    }
+
+    public void setSlotNo(int slotNo) {
+        this.slotNo = slotNo;
+    }
+
+    public void setOccupied(Boolean occupied) {
+        isOccupied = occupied;
+    }
 }

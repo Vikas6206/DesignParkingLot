@@ -12,7 +12,7 @@ public class Booking implements IBooking{
     private long vehicleInTime;
 
     public Booking( BookingBuilder bookingBuilder ) {
-        this.bookingId = bookingBuilder.bookingId;
+        this.bookingId =  UUID.randomUUID().toString();;
         this.vehicle = bookingBuilder.vehicle;
         this.levelNo = bookingBuilder.levelNo;
         this.rowNo = bookingBuilder.rowNo;
@@ -66,17 +66,13 @@ public class Booking implements IBooking{
 
     //Using builder pattern to create Booking object
     public static class BookingBuilder{
-        private String bookingId;
         private Vehicle vehicle;
         private  int levelNo;
         private  int rowNo;
         private List<Slot> slotList;
         private long vehicleInTime;
 
-        public BookingBuilder setBookingId(String bookingId) {
-            this.bookingId = UUID.randomUUID().toString();
-            return this;
-        }
+
 
         public BookingBuilder setVehicle(Vehicle vehicle) {
             this.vehicle = vehicle;
@@ -98,12 +94,9 @@ public class Booking implements IBooking{
             return this;
         }
 
-        public BookingBuilder setVehicleInTime(long vehicleInTime) {
-            this.vehicleInTime = vehicleInTime;
-            return this;
-        }
 
         public Booking build(){
+            this.vehicleInTime=System.currentTimeMillis();
             return new Booking(this);
         }
     }
