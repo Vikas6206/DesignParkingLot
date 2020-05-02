@@ -3,7 +3,7 @@ package com.home.parkingLot;
 import java.util.List;
 import java.util.UUID;
 
-public class Booking {
+public class Booking implements IBooking{
     private String bookingId;
     private Vehicle vehicle;
     private  int levelNo;
@@ -18,6 +18,30 @@ public class Booking {
         this.rowNo = bookingBuilder.rowNo;
         this.slotList = bookingBuilder.slotList;
         this.vehicleInTime = bookingBuilder.vehicleInTime;
+    }
+
+    public String getBookingId() {
+        return bookingId;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public int getLevelNo() {
+        return levelNo;
+    }
+
+    public int getRowNo() {
+        return rowNo;
+    }
+
+    public List<Slot> getSlotList() {
+        return slotList;
+    }
+
+    public long getVehicleInTime() {
+        return vehicleInTime;
     }
 
     //@vkumar: At the time of booking the vehicle out time and payment won't be available
